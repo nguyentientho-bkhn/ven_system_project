@@ -1,9 +1,6 @@
 # VEN_System-Project
-
-1. Kiến trúc hệ thống Community - Event infratructure
-Sơ đồ hệ thống (kien-truc-ven-1.0.html)
  
-Mô tả các module trong hệ thống 
+I) Mô tả các module trong hệ thống 
 1. Event:
 •	Module lấy data đầu vào từ các hệ thống:  
 o	
@@ -25,3 +22,27 @@ o
 •	Database lưu trữ toàn bộ message đã được format. Dùng cho truy vấn, hiển thị sau này theo khách hàng hoặc nhân viên
 5. dcom-gatewway:
 	Open API cho phép kết nối với bên thứ 3
+
+
+II) Cấu trúc code từng module:
+1. Module code D-Event
+No	Module	Description
+1>	vnds-event:	Module parent
+2>	vnds-event-app: -	Module frontend sử dụng công nghệ jsp làm giao diện cho quản trị admin của VEN
+                  - Chứa các API của VEN cho phép các service nội bộ kết nối
+3>	vnds-event-message:	Module build các message tập trung
+4>	vnds-event-model:	Module định nghĩa các object mapping với cơ sở dữ liệu solr
+5>	vnds-event-service:	Module xử lý logic build message
+6>	vnds-event-source:	Module xử lý các connection với các nguồn dữ liệu đầu vào
+7>	vnds-event-storage:	Module thực hiện lưu trữ dữ liệu vào solr
+
+2. Module code D-communication
+No	Module	Description
+1>	communication-frontend-api:	Module chứa các API của D-com
+2>	communication-frontend-model:	Module chứa các object request đến d-com
+3>	communication-internal-common:	Module chứa các abstract object và utils
+4>	communication-internal-service:	Module chứa logic xử lý các message để phân phối đến các kênh theo nghiệp vụ
+5>	communication-internal-storage:	Module thực hiện lưu trữ dữ liệu vào solr
+6>	d-communication:	Module parent
+
+
